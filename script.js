@@ -64,8 +64,8 @@ function draw() {
 	var mapbass = map(bass, 0, 255, -100, 800);
 	var scalebass = map(bass, 0, 255, 0, 0.8);
 
-	mapMouseX = map(mouseX, 0, width, 4, 10);
-	mapMouseY = map(mouseY, 0, height, windowHeight / 4, windowHeight);
+	mapMouseX = map(mouseX, 0, width, 4, 8);
+	mapMouseY = map(mouseY, 0, height, windowHeight / 4, windowHeight/2);
 
 	pieces = mapMouseX;
 	radius = mapMouseY;
