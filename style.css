@@ -135,7 +135,7 @@ canvas {
 }
 
 .upload-btn::before {
-	content: 'Upload your track';
+	content: 'Upload A Track (MP3)';
 	display: inline-block;  
 	left: 2vmax;
 	outline: none;
