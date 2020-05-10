@@ -150,18 +150,26 @@ function windowResized() {
 
 window.addEventListener('keypress', function(e) {
 	var keyCode = e.keyCode;
-	if (keyCode >= 65 && keyCode <= 74) {
-		state = keyCode - 65;
-	}
-	else if (keyCode >= 48 && keyCode <= 57) {
+	// this.console.log(keyCode);
+	// if (keyCode >= 97 && keyCode <= 122) {
+	// 	state = keyCode - 97;
+	// 	this.console.log(state);
+	// }
+
+	// audio switching
+	if (keyCode >= 48 && keyCode <= 57) {
 		audio = audios[keyCode - 48];
 	}
+
+	// color scheme switching [Enter]
 	else if (keyCode == 13) {
 		if (state < 4)
 			state += 1;
 		else
 			state = 0;
 	}
+
+	// play/pause toggle [Space]
 	else if (keyCode == 32) {
 		toggleAudio();
 	}
