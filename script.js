@@ -158,7 +158,10 @@ window.addEventListener('keypress', function(e) {
 
 	// audio switching
 	if (keyCode >= 48 && keyCode <= 57) {
+		if (audio.isPlaying())
+			audio.pause();
 		audio = audios[keyCode - 48];
+		audio.play();
 	}
 
 	// color scheme switching [Enter]
