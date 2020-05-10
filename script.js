@@ -1,5 +1,13 @@
 var pieces, radius, fft, mapMouseX, mapMouseY, toggleBtn, audio, uploadBtn, uploadedAudio, uploadAnim;
-var colorPalette = ["#000", "#561637", "#753456", "#b34c75" ];
+// background, inner (bass), middle (mid), outer (treble)
+var colorPalette1 = ["#000", "#561637", "#753456", "#b34c75" ]; //pink
+var colorPalette2 = ["#000", "#CF8963", "#F2A164", "#F1822D"];  //orange
+var colorPalette3 = ["#000", "#799985", "#4c956c", "#1a9a6d"];  //green
+var colorPalette4 = ["#000", "#739EAD", "#87CEFA", "#1E90FF"];  //blue
+var colorPalette5 = ["#000", "#372549", "#532CBE", "#4e0250"];  //purple
+var palettes = [colorPalette1, colorPalette2, colorPalette3, colorPalette4, colorPalette5];
+var state = 0;
+var colorPalette = palettes[state];
 var uploadLoading = false;
 
 function preload() {
@@ -101,7 +109,7 @@ function draw() {
 		pop();
 
 
-		/*----------  TREMBLE  ----------*/
+		/*----------  TREBLE  ----------*/
 		push();
 		stroke(colorPalette[3]);
 		scale(scaleTreble);
@@ -126,3 +134,22 @@ function toggleAudio() {
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 }
+
+
+window.addEventListener('keypress', function(e) {
+	var keyCode = e.keyCode;
+	if (keyCode > 48 && keyCode <= 57) {
+		state = keyCode - 49;
+	}
+	else if (keyCode == 13) {
+		if (state < 4)
+			state += 1;
+		else
+			state = 0;
+	}
+	else if (keyCode == 32) {
+		toggleAudio();
+	}
+	
+	colorPalette = palettes[state];
+});
