@@ -1,4 +1,6 @@
-var pieces, radius, fft, mapMouseX, mapMouseY, toggleBtn, audio, uploadBtn, uploadedAudio, uploadAnim;
+var pieces, radius, fft, mapMouseX, mapMouseY, toggleBtn, audio, audios, uploadBtn, uploadedAudio, uploadAnim;
+
+// COLOR SCHEME
 // background, inner (bass), middle (mid), outer (treble)
 var colorPalette1 = ["#000", "#561637", "#753456", "#b34c75" ]; //pink
 var colorPalette2 = ["#000", "#CF8963", "#F2A164", "#F1822D"];  //orange
@@ -11,7 +13,14 @@ var colorPalette = palettes[state];
 var uploadLoading = false;
 
 function preload() {
-	audio = loadSound("JackInAA.mp3");
+	audios = [loadSound("tracks/JackInAA.mp3"),
+			loadSound("tracks/ARIZONA-Where.mp3"),
+			loadSound("tracks/Bleachers-WildHeart.mp3"),
+			loadSound("tracks/Desiigner-Panda.mp3"),
+			loadSound("tracks/ARRahman-DilSeRe.mp3"),
+			loadSound("tracks/Khalid-Vertigo.mp3"),
+			loadSound("tracks/ShakeyGraves-Family.mp3")];
+	audio = audios[0];
 }
 
 
@@ -141,8 +150,11 @@ function windowResized() {
 
 window.addEventListener('keypress', function(e) {
 	var keyCode = e.keyCode;
-	if (keyCode > 48 && keyCode <= 57) {
-		state = keyCode - 49;
+	if (keyCode >= 65 && keyCode <= 74) {
+		state = keyCode - 65;
+	}
+	else if (keyCode >= 48 && keyCode <= 57) {
+		audio = audios[keyCode - 48];
 	}
 	else if (keyCode == 13) {
 		if (state < 4)
