@@ -44,7 +44,7 @@ function setup() {
 	toggleBtn.addClass("toggle-btn");
 	toggleBtn.mousePressed(toggleAudio);
 	fft = new p5.FFT();
-	audio.loop();
+	audio.pause();
 }
 
 function draw() {
@@ -55,6 +55,7 @@ function draw() {
 	} else {
 		uploadAnim.removeClass('is-visible');
 	}
+
 
 	background(colorPalette[0]);
 	noFill();
@@ -124,8 +125,10 @@ function draw() {
 
 function toggleAudio() {
 	if (audio.isPlaying()) {
+		console.log("playing");
 		audio.pause();
 	} else {
+		console.log("not playing");
 		audio.play();
 	}
 }
