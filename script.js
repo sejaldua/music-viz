@@ -12,8 +12,8 @@ var state = 0;
 var colorPalette = palettes[state];
 var uploadLoading = false;
 
-var artists = ["Siddhartha Khosla", "A R I Z O N A", "Bleachers", "Desiigner", "A.R. Rahman", "Khalid", "Shakey Graves"];
-var songs = ["Jack in AA", "Where I Wanna Be", "Wild Heart", "Panda", "Dil Se Re", "Vertigo", "Family and Genus"];
+var artists = ["Siddhartha Khosla", "A R I Z O N A", "Bleachers", "Desiigner", "A.R. Rahman", "Khalid", "Shakey Graves", "Mumford & Sons"];
+var songs = ["Jack in AA", "Where I Wanna Be", "Wild Heart", "Panda", "Dil Se Re", "Vertigo", "Family and Genus", "I Will Wait"];
 
 function preload() {
 	audios = [loadSound("tracks/JackInAA.mp3"),
@@ -22,7 +22,8 @@ function preload() {
 			loadSound("tracks/Desiigner-Panda.mp3"),
 			loadSound("tracks/ARRahman-DilSeRe.mp3"),
 			loadSound("tracks/Khalid-Vertigo.mp3"),
-			loadSound("tracks/ShakeyGraves-Family.mp3")];
+			loadSound("tracks/ShakeyGraves-Family.mp3"),
+			loadSound("tracks/Mumford-IWillWait.mp3")];
 	audio = audios[0];
 }
 
@@ -165,8 +166,10 @@ window.addEventListener('keypress', function(e) {
 		if (audio.isPlaying())
 			audio.pause();
 		this.document.getElementById("fixed-div").innerHTML = artists[index]+"<br>"+songs[index];
-		$("#fixed-div").show();
-		this.setTimeout(function() {$("#fixed-div").hide()}, 3000);
+		$("#fixed-div").slideDown();
+		this.setTimeout(function() {
+			this.document.getElementById("fixed-div").innerHTML = "";
+			$("#fixed-div").slideUp()}, 3000);
 		audio = audios[index];
 		audio.play();
 	}
