@@ -121,6 +121,21 @@ canvas {
 	display: block;
 }
 
+
+.instructions {
+	padding: 10px;
+	text-align: left;
+	text-transform: none;
+	letter-spacing: 0.05em;
+	color: white;
+	position: relative; 
+	border: 1px solid white;
+	top: 2vmin;
+	width: 200px;
+	display: block;
+	z-index: 1;
+}
+
 .upload-btn::before,
 .toggle-btn {
 	padding: 10px;
