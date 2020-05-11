@@ -68,7 +68,7 @@ canvas {
 	background: rgb(0, 0, 0);
 	width: 100%;
 	height: 100%;
-	z-index: 9;
+	z-index: 0;
 	overflow: hidden;
 }
 
@@ -131,7 +131,7 @@ canvas {
 	position: absolute;
 	bottom: 2vmax;   
 	border: 1px solid;
-	width: 255px;
+	width: 200px;
 }
 
 .upload-btn::before {
@@ -184,3 +184,18 @@ canvas {
 		width: calc(100% - 20px);
 	}
 }
+
+#fixed-div {
+	background-color: rgba(99, 99, 99, 0.705);
+	position: fixed;
+	top: 1em;
+	right: 1em;
+	z-index: 1;
+	color: white;
+	font-size: 18;
+	padding: 20px 60px;
+	border-radius: 15px;
+	display: none;
+	transition: display 350ms ease-in-out;
+}
+
