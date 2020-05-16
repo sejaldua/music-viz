@@ -14,21 +14,34 @@ var uploadLoading = false;
 
 var artists = ["Siddhartha Khosla", "A R I Z O N A", "Bleachers", "Desiigner", "A.R. Rahman", "Khalid", "Shakey Graves", "Mumford & Sons"];
 var songs = ["Jack in AA", "Where I Wanna Be", "Wild Heart", "Panda", "Dil Se Re", "Vertigo", "Family and Genus", "I Will Wait"];
+var tracks = ["tracks/JackInAA.mp3",
+		"tracks/ARIZONA-Where.mp3",
+		"tracks/Bleachers-WildHeart.mp3",
+		"tracks/Desiigner-Panda.mp3",
+		"tracks/ARRahman-DilSeRe.mp3",
+		"tracks/Khalid-Vertigo.mp3",
+		"tracks/ShakeyGraves-Family.mp3",
+		"tracks/Mumford-IWillWait.mp3"];
 
 function preload() {
-	audios = [loadSound("tracks/JackInAA.mp3"),
-			loadSound("tracks/ARIZONA-Where.mp3"),
-			loadSound("tracks/Bleachers-WildHeart.mp3"),
-			loadSound("tracks/Desiigner-Panda.mp3"),
-			loadSound("tracks/ARRahman-DilSeRe.mp3"),
-			loadSound("tracks/Khalid-Vertigo.mp3"),
-			loadSound("tracks/ShakeyGraves-Family.mp3"),
-			loadSound("tracks/Mumford-IWillWait.mp3")];
-	audio = audios[0];
+	// audios = [loadSound("tracks/JackInAA.mp3"),
+	// 		loadSound("tracks/ARIZONA-Where.mp3"),
+	// 		loadSound("tracks/Bleachers-WildHeart.mp3"),
+	// 		loadSound("tracks/Desiigner-Panda.mp3"),
+	// 		loadSound("tracks/ARRahman-DilSeRe.mp3"),
+	// 		loadSound("tracks/Khalid-Vertigo.mp3"),
+	// 		loadSound("tracks/ShakeyGraves-Family.mp3"),
+	// 		loadSound("tracks/Mumford-IWillWait.mp3")];
+	audio = loadSound("tracks/JackInAA.mp3");
+}
+
+function manual_load(path) {
+	uploadedAudio = loadSound(path, uploadedAudioPlay);
 }
 
 
 function uploaded(file) {
+	console.log(file);
 	uploadLoading = true;
 	uploadedAudio = loadSound(file.data, uploadedAudioPlay);
 }
@@ -163,15 +176,12 @@ window.addEventListener('keypress', function(e) {
 	// audio switching
 	if (keyCode >= 48 && keyCode <= 57) {
 		var index = keyCode - 48;
-		if (audio.isPlaying())
-			audio.pause();
+		manual_load(tracks[index]);
 		this.document.getElementById("fixed-div").innerHTML = artists[index]+"<br>"+songs[index];
 		$("#fixed-div").slideDown();
 		this.setTimeout(function() {
 			this.document.getElementById("fixed-div").innerHTML = "";
-			$("#fixed-div").slideUp()}, 3000);
-		audio = audios[index];
-		audio.play();
+			$("#fixed-div").slideUp()}, 5000);
 	}
 
 	// color scheme switching [Enter]
