@@ -146,11 +146,11 @@ canvas {
 	position: absolute;
 	bottom: 2vmax;   
 	border: 1px solid;
-	width: 200px;
+	width: 150px;
 }
 
 .upload-btn::before {
-	content: 'Upload A Track (MP3)';
+	content: "Upload a Track";
 	display: inline-block;  
 	left: 2vmax;
 	outline: none;
@@ -177,7 +177,7 @@ canvas {
 	color: #fff;
 }
 
-@media screen and (max-width: 55em) {
+/* @media screen and (max-width: 55em) {
 	.codrops-header {
 		flex-direction: column;
 		justify-content: center;
@@ -198,7 +198,7 @@ canvas {
 		left: 10px;
 		width: calc(100% - 20px);
 	}
-}
+} */
 
 #fixed-div {
 	background-color: rgba(99, 99, 99, 0.705);
@@ -214,3 +214,10 @@ canvas {
 	transition: display 350ms ease-in-out;
 }
 
+
+@media screen and (min-width:320px) and (max-width:640px) {
+	.instructions {
+		display: none;
+	}	
+
+}
