@@ -215,9 +215,40 @@ canvas {
 }
 
 
+input[type="number"] {
+	display: none;
+}
+
+.enternumber {
+	display: none
+}
+ 
+#submit {
+	display: none;
+}
+
+
 @media screen and (min-width:320px) and (max-width:640px) {
 	.instructions {
-		display: none;
+		border: none;
 	}	
 
+	.text {
+		display: none;
+	}
+
+
+	.enternumber {
+		display: block
+	}
+
+	input[type="number"] {
+		display: block;
+	}
+
+	#submit {
+		display: block;
+		background-color: black;
+		color: white;
+	}
 }

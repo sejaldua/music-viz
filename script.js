@@ -166,6 +166,24 @@ function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 }
 
+function play_new_song(index) {
+	manual_load(tracks[index]);
+	this.document.getElementById("fixed-div").innerHTML = artists[index]+"<br>"+songs[index];
+	$("#fixed-div").slideDown();
+	this.setTimeout(function() {
+		this.document.getElementById("fixed-div").innerHTML = "";
+		$("#fixed-div").slideUp()}, 5000);
+}
+
+function generate() {
+	var index = document.getElementById("tracknum").value;
+	if (parseInt(index) >= 0 && parseInt(index) <= 9)
+		play_new_song(index);
+}
+
+document.getElementById("submit").addEventListener("click", generate);
+
+
 
 window.addEventListener('keypress', function(e) {
 	var keyCode = e.keyCode;
@@ -178,12 +196,7 @@ window.addEventListener('keypress', function(e) {
 	// audio switching
 	if (keyCode >= 48 && keyCode <= 57) {
 		var index = keyCode - 48;
-		manual_load(tracks[index]);
-		this.document.getElementById("fixed-div").innerHTML = artists[index]+"<br>"+songs[index];
-		$("#fixed-div").slideDown();
-		this.setTimeout(function() {
-			this.document.getElementById("fixed-div").innerHTML = "";
-			$("#fixed-div").slideUp()}, 5000);
+		play_new_song(index);
 	}
 
 	// color scheme switching [Enter]
