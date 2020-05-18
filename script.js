@@ -166,6 +166,8 @@ function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 }
 
+$("#tracknum").focus(function() {$(this).val("");});
+
 function play_new_song(index) {
 	manual_load(tracks[index]);
 	this.document.getElementById("fixed-div").innerHTML = artists[index]+"<br>"+songs[index];
@@ -175,15 +177,14 @@ function play_new_song(index) {
 		$("#fixed-div").slideUp()}, 5000);
 }
 
-function generate() {
-	var index = document.getElementById("tracknum").value;
-	if (parseInt(index) >= 0 && parseInt(index) <= 9)
-		play_new_song(index);
-}
-
-document.getElementById("submit").addEventListener("click", generate);
-
-
+$("#body").dblclick(function() {
+	console.log(state);
+	if (state < 4)
+		state += 1;
+	else
+		state = 0;
+	colorPalette = palettes[state];
+})
 
 window.addEventListener('keypress', function(e) {
 	var keyCode = e.keyCode;
@@ -192,6 +193,7 @@ window.addEventListener('keypress', function(e) {
 	// 	state = keyCode - 97;
 	// 	this.console.log(state);
 	// }
+
 
 	// audio switching
 	if (keyCode >= 48 && keyCode <= 57) {
@@ -206,6 +208,7 @@ window.addEventListener('keypress', function(e) {
 		else
 			state = 0;
 	}
+
 
 	// play/pause toggle [Space]
 	else if (keyCode == 32) {

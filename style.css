@@ -223,10 +223,6 @@ input[type="number"] {
 	display: none
 }
  
-#submit {
-	display: none;
-}
-
 
 @media screen and (min-width:320px) and (max-width:640px) {
 	.instructions {
@@ -246,9 +242,4 @@ input[type="number"] {
 		display: block;
 	}
 
-	#submit {
-		display: block;
-		background-color: black;
-		color: white;
-	}
 }
