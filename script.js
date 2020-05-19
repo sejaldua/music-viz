@@ -1,4 +1,4 @@
-var pieces, radius, fft, mapMouseX, mapMouseY, toggleBtn, audio, audios, uploadBtn, uploadedAudio, uploadAnim;
+var pieces, radius, fft, map_mouse_x, map_mouse_y, toggleBtn, audio, audios, uploadBtn, uploadedAudio, uploadAnim;
 
 // COLOR SCHEME
 // background, inner (bass), middle (mid), outer (treble)
@@ -26,14 +26,6 @@ var tracks = ["tracks/JackInAA.mp3",
 		"tracks/GlassAnimalsDenzelCurry-TokyoDrifting.mp3"];
 
 function preload() {
-	// audios = [loadSound("tracks/JackInAA.mp3"),
-	// 		loadSound("tracks/ARIZONA-Where.mp3"),
-	// 		loadSound("tracks/Bleachers-WildHeart.mp3"),
-	// 		loadSound("tracks/Desiigner-Panda.mp3"),
-	// 		loadSound("tracks/ARRahman-DilSeRe.mp3"),
-	// 		loadSound("tracks/Khalid-Vertigo.mp3"),
-	// 		loadSound("tracks/ShakeyGraves-Family.mp3"),
-	// 		loadSound("tracks/Mumford-IWillWait.mp3")];
 	audio = loadSound("tracks/JackInAA.mp3");
 }
 
@@ -65,7 +57,7 @@ function uploadedAudioPlay(audioFile) {
 function setup() {
 
 	uploadAnim = select('#uploading-animation');
-	createCanvas(windowWidth, windowHeight);
+	createCanvas(window_width, window_height);
 	toggleBtn = createButton("Play / Pause");
 	uploadBtn = createFileInput(uploaded);
 	uploadBtn.addClass("upload-btn");
@@ -92,22 +84,22 @@ function draw() {
 	var treble = fft.getEnergy("treble");
 	var mid = fft.getEnergy("mid");
 
-	var mapMid = map(mid, 0, 255, -radius, radius);
-	var scaleMid = map(mid, 0, 255, 1, 1.5);
+	var map_mid = map(mid, 0, 255, -radius, radius);
+	var scale_mid = map(mid, 0, 255, 1, 1.5);
 
-	var mapTreble = map(treble, 0, 255, -radius, radius);
-	var scaleTreble = map(treble, 0, 255, 1, 1.5);
+	var map_treble = map(treble, 0, 255, -radius, radius);
+	var scale_treble = map(treble, 0, 255, 1, 1.5);
 
-	var mapbass = map(bass, 0, 255, -100, 800);
-	var scalebass = map(bass, 0, 255, 0, 0.8);
+	var map_bass = map(bass, 0, 255, -100, 800);
+	var scale_bass = map(bass, 0, 255, 0, 0.8);
 
-	mapMouseX = map(mouseX, 0, width, 4, 8);
-	mapMouseY = map(mouseY, 0, height, windowHeight / 4, windowHeight/2);
+	map_mouse_x = map(mouse_x, 0, width, 4, 8);
+	map_mouse_y = map(mouse_y, 0, height, window_height / 4, window_height/2);
 
-	pieces = mapMouseX;
-	radius = mapMouseY;
+	pieces = map_mouse_x;
+	radius = map_mouse_y;
 
-	translate(windowWidth / 2, windowHeight / 2);
+	translate(window_width / 2, window_height / 2);
 
 	strokeWeight(1);
 
@@ -120,10 +112,10 @@ function draw() {
 		push();
 		strokeWeight(5);
 		stroke(colorPalette[1]);
-		scale(scalebass);
+		scale(scale_bass);
 		rotate(frameCount * -0.5);
-		line(mapbass, radius / 2, radius, radius);
-		line(-mapbass, -radius / 2, radius, radius);
+		line(map_bass, radius / 2, radius, radius);
+		line(-map_bass, -radius / 2, radius, radius);
 		pop();
 
 
@@ -132,18 +124,18 @@ function draw() {
 		push();
 		strokeWeight(0.5);
 		stroke(colorPalette[2]);
-		scale(scaleMid);
-		line(mapMid, radius / 2, radius, radius);
-		line(-mapMid, -radius / 2, radius, radius);
+		scale(scale_mid);
+		line(map_mid, radius / 2, radius, radius);
+		line(-map_mid, -radius / 2, radius, radius);
 		pop();
 
 
 		/*----------  TREBLE  ----------*/
 		push();
 		stroke(colorPalette[3]);
-		scale(scaleTreble);
-		line(mapTreble, radius / 2, radius, radius);
-		line(-mapTreble, -radius / 2, radius, radius);
+		scale(scale_treble);
+		line(map_treble, radius / 2, radius, radius);
+		line(-map_treble, -radius / 2, radius, radius);
 		pop();
 
 	}
@@ -163,7 +155,7 @@ function toggleAudio() {
 
 
 function windowResized() {
-	resizeCanvas(windowWidth, windowHeight);
+	resizeCanvas(window_width, window_height);
 }
 
 $("#tracknum").focus(function() {$(this).val("");});
@@ -188,12 +180,6 @@ $("#body").dblclick(function() {
 
 window.addEventListener('keypress', function(e) {
 	var keyCode = e.keyCode;
-	// this.console.log(keyCode);
-	// if (keyCode >= 97 && keyCode <= 122) {
-	// 	state = keyCode - 97;
-	// 	this.console.log(state);
-	// }
-
 
 	// audio switching
 	if (keyCode >= 48 && keyCode <= 57) {
