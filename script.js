@@ -1,4 +1,4 @@
-var pieces, radius, fft, map_mouse_x, map_mouse_y, toggleBtn, audio, audios, uploadBtn, uploadedAudio, uploadAnim;
+var pieces, radius, fft, mapMouseX, mapMouseY, toggleBtn, audio, audios, uploadBtn, uploadedAudio, uploadAnim;
 
 // COLOR SCHEME
 // background, inner (bass), middle (mid), outer (treble)
@@ -57,7 +57,7 @@ function uploadedAudioPlay(audioFile) {
 function setup() {
 
 	uploadAnim = select('#uploading-animation');
-	createCanvas(window_width, window_height);
+	createCanvas(windowWidth, windowHeight);
 	toggleBtn = createButton("Play / Pause");
 	uploadBtn = createFileInput(uploaded);
 	uploadBtn.addClass("upload-btn");
@@ -93,13 +93,13 @@ function draw() {
 	var map_bass = map(bass, 0, 255, -100, 800);
 	var scale_bass = map(bass, 0, 255, 0, 0.8);
 
-	map_mouse_x = map(mouse_x, 0, width, 4, 8);
-	map_mouse_y = map(mouse_y, 0, height, window_height / 4, window_height/2);
+	mapMouseX = map(mouseX, 0, width, 4, 8);
+	mapMouseY = map(mouseY, 0, height, windowHeight / 4, windowHeight/2);
 
-	pieces = map_mouse_x;
-	radius = map_mouse_y;
+	pieces = mapMouseX;
+	radius = mapMouseY;
 
-	translate(window_width / 2, window_height / 2);
+	translate(windowWidth / 2, windowHeight / 2);
 
 	strokeWeight(1);
 
@@ -155,7 +155,7 @@ function toggleAudio() {
 
 
 function windowResized() {
-	resizeCanvas(window_width, window_height);
+	resizeCanvas(windowWidth, windowHeight);
 }
 
 $("#tracknum").focus(function() {$(this).val("");});
