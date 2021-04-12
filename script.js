@@ -14,11 +14,11 @@ var uploadLoading = false;
 
 var artists = ["Siddhartha Khosla", "A R I Z O N A", "Bleachers", "Desiigner", "A.R. Rahman", "Khalid", "Shakey Graves", "Mumford & Sons", "Travis Scott", "Glass Animals (feat. Denzel Curry)"];
 var songs = ["Jack in AA", "Where I Wanna Be", "Wild Heart", "Panda", "Dil Se Re", "Vertigo", "Family and Genus", "I Will Wait", "HIGHEST IN THE ROOM", "Tokyo Drifting"];
-var tracks = ["tracks/JackInAA.mp3",
+var tracks = ["tracks/TashSultana-Notion.mp3",
 		"tracks/ARIZONA-Where.mp3",
-		"tracks/Bleachers-WildHeart.mp3",
+		"tracks/MacMiller-Dunno.mp3",
 		"tracks/Desiigner-Panda.mp3",
-		"tracks/ARRahman-DilSeRe.mp3",
+		"tracks/RoyIrwin-DemonsCave.mp3",
 		"tracks/Khalid-Vertigo.mp3",
 		"tracks/ShakeyGraves-Family.mp3",
 		"tracks/Mumford-IWillWait.mp3",
