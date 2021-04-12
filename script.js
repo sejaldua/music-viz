@@ -12,8 +12,8 @@ var state = 0;
 var colorPalette = palettes[state];
 var uploadLoading = false;
 
-var artists = ["Siddhartha Khosla", "A R I Z O N A", "Bleachers", "Desiigner", "A.R. Rahman", "Khalid", "Shakey Graves", "Mumford & Sons", "Travis Scott", "Glass Animals (feat. Denzel Curry)"];
-var songs = ["Jack in AA", "Where I Wanna Be", "Wild Heart", "Panda", "Dil Se Re", "Vertigo", "Family and Genus", "I Will Wait", "HIGHEST IN THE ROOM", "Tokyo Drifting"];
+var artists = ["Tash Sultana", "A R I Z O N A", "Mac Miller", "Desiigner", "Roy Irwin", "Khalid", "Shakey Graves", "Mumford & Sons", "Travis Scott", "Glass Animals (feat. Denzel Curry)"];
+var songs = ["Notion", "Where I Wanna Be", "Dunno", "Panda", "Demon's Cave", "Vertigo", "Family and Genus", "I Will Wait", "HIGHEST IN THE ROOM", "Tokyo Drifting"];
 var tracks = ["tracks/TashSultana-Notion.mp3",
 		"tracks/ARIZONA-Where.mp3",
 		"tracks/MacMiller-Dunno.mp3",
