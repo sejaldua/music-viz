@@ -2,7 +2,7 @@ var pieces, radius, fft, mapMouseX, mapMouseY, toggleBtn, audio, audios, uploadB
 
 // COLOR SCHEME
 // background, inner (bass), middle (mid), outer (treble)
-var colorPalette1 = ["#000", "#561637", "#753456", "#b34c75" ]; //pink
+var colorPalette1 = ["#000", "#753456", "#FF8E8E", "#FFB1B1" ]; //pink FFB1B1
 var colorPalette2 = ["#000", "#CF8963", "#F2A164", "#F1822D"];  //orange
 var colorPalette3 = ["#000", "#799985", "#4c956c", "#1a9a6d"];  //green
 var colorPalette4 = ["#000", "#739EAD", "#87CEFA", "#1E90FF"];  //blue
@@ -12,21 +12,21 @@ var state = 0;
 var colorPalette = palettes[state];
 var uploadLoading = false;
 
-var artists = ["Tash Sultana", "A R I Z O N A", "Mac Miller", "Desiigner", "Roy Irwin", "Khalid", "Shakey Graves", "Mumford & Sons", "Travis Scott", "Glass Animals (feat. Denzel Curry)"];
-var songs = ["Notion", "Where I Wanna Be", "Dunno", "Panda", "Demon's Cave", "Vertigo", "Family and Genus", "I Will Wait", "HIGHEST IN THE ROOM", "Tokyo Drifting"];
+var artists = ["Tash Sultana", "A R I Z O N A", "Mac Miller", "Masego, FKJ", "Roy Irwin", "Lennon Stella", "Big Wild", "Mumford & Sons", "Travis Scott", "Glass Animals (feat. Denzel Curry)"];
+var songs = ["Notion", "Where I Wanna Be", "Dunno", "Tadow", "Demon's Cave", "Games", "Awaken", "I Will Wait", "HIGHEST IN THE ROOM", "Tokyo Drifting"];
 var tracks = ["tracks/TashSultana-Notion.mp3",
 		"tracks/ARIZONA-Where.mp3",
 		"tracks/MacMiller-Dunno.mp3",
-		"tracks/Desiigner-Panda.mp3",
+		"tracks/Masego, FKJ - Tadow.mp3",
 		"tracks/RoyIrwin-DemonsCave.mp3",
-		"tracks/Khalid-Vertigo.mp3",
-		"tracks/ShakeyGraves-Family.mp3",
+		"tracks/Lennon Stella - Games.mp3",
+		"tracks/Big Wild - Awaken.mp3",
 		"tracks/Mumford-IWillWait.mp3",
 		"tracks/TravisScott-Highest.mp3",
 		"tracks/GlassAnimalsDenzelCurry-TokyoDrifting.mp3"];
 
 function preload() {
-	audio = loadSound("tracks/JackInAA.mp3");
+	audio = loadSound("tracks/TashSultana-Notion.mp3");
 }
 
 function manual_load(path) {
