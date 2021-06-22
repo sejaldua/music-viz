@@ -96,14 +96,14 @@ function draw() {
 	mapMouseX = map(mouseX, 0, width, 4, 8);
 	mapMouseY = map(mouseY, 0, height, windowHeight / 4, windowHeight/2);
 
-	pieces = mapMouseX;
+	pieces = 6;
 	radius = mapMouseY;
 
 	translate(windowWidth / 2, windowHeight / 2);
 
 	strokeWeight(1);
 
-	for (i = 0; i < pieces; i += 0.5) {
+	for (i = 0; i < pieces; i += 0.25) {
 
 		rotate(TWO_PI / pieces);
 
