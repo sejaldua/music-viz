@@ -3,10 +3,10 @@ var pieces, radius, fft, mapMouseX, mapMouseY, toggleBtn, audio, audios, uploadB
 // COLOR SCHEME
 // background, inner (bass), middle (mid), outer (treble)
 var colorPalette1 = ["#000", "#753456", "#FF8E8E", "#FFB1B1" ]; //pink FFB1B1
-var colorPalette2 = ["#000", "#CF8963", "#F2A164", "#F1822D"];  //orange
-var colorPalette3 = ["#000", "#799985", "#4c956c", "#1a9a6d"];  //green
-var colorPalette4 = ["#000", "#739EAD", "#87CEFA", "#1E90FF"];  //blue
-var colorPalette5 = ["#000", "#d3bde8", "#A479B7", "#B735EE"];  //purple
+var colorPalette2 = ["#000", "#CF9D63", "#F29F70", "#FFC353"];  //orange
+var colorPalette3 = ["#000", "#799985", "#4c956c", "#A1C765"];  //green
+var colorPalette4 = ["#000", "#739EAD", "#87CEFA", "#2D7AB3"];  //blue
+var colorPalette5 = ["#000", "#837BD0", "#814F9C", "#8D509C"];  //purple
 var palettes = [colorPalette1, colorPalette2, colorPalette3, colorPalette4, colorPalette5];
 var state = 0;
 var colorPalette = palettes[state];
@@ -93,11 +93,12 @@ function draw() {
 	var map_bass = map(bass, 0, 255, -100, 800);
 	var scale_bass = map(bass, 0, 255, 0, 0.8);
 
-	mapMouseX = map(mouseX, 0, width, 4, 8);
-	mapMouseY = map(mouseY, 0, height, windowHeight / 4, windowHeight/2);
+	// mapMouseX = map(mouseX, 0, width, 4, 8);
+	mapMouseX = map(mouseX, 0, width, windowWidth / 4, windowWidth);
+	mapMouseY = map(mouseY, 0, height, windowHeight / 4, windowHeight);
 
 	pieces = 6;
-	radius = mapMouseY;
+	radius = Math.sqrt((mapMouseX ** 2)  +  (mapMouseY ** 2)) / 3;
 
 	translate(windowWidth / 2, windowHeight / 2);
 
